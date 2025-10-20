@@ -26,7 +26,11 @@
         android:id="@+id/nav_inmuebles"
         android:name="com.ulp.inmobiliaria.ui.inmuebles.InmueblesFragment"
         android:label="@string/inmuebles"
-        tools:layout="@layout/fragment_inmuebles" />
+        tools:layout="@layout/fragment_inmuebles" >
+        <action
+            android:id="@+id/action_nav_inmuebles_to_detalleFragment"
+            app:destination="@id/detalleFragment" />
+    </fragment>
     <fragment
         android:id="@+id/nav_inquilinos"
         android:name="com.ulp.inmobiliaria.ui.inquilinos.InquilinosFragment"
@@ -37,4 +41,15 @@
         android:name="com.ulp.inmobiliaria.ui.contratos.ContratosFragment"
         android:label="@string/contratos"
         tools:layout="@layout/fragment_contratos" />
+    <fragment
+        android:id="@+id/detalleFragment"
+        android:name="com.ulp.inmobiliaria.ui.inmuebles.DetalleFragment"
+        android:label="fragment_detalle"
+        tools:layout="@layout/fragment_detalle" >
+        <action
+            android:id="@+id/action_detalleFragment_to_nav_inmuebles"
+            app:destination="@id/nav_inmuebles" />
+    </fragment>
+
+
 </navigation>
