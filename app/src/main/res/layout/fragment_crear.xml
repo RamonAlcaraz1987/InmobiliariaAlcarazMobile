@@ -2,80 +2,75 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout2"
+    android:id="@+id/frameLayout3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.inmuebles.DetalleFragment" >
+    tools:context=".ui.inmuebles.CrearFragment">
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/textView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:text="INFORMACION DEL INMUEBLE"
+        android:text="CREAR INMUEBLE"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.481"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/etDetalleCodigo"
+        android:id="@+id/etCrearSuperficie"
         android:layout_width="136dp"
         android:layout_height="52dp"
         android:layout_marginTop="16dp"
-        android:editable="false"
         android:ems="10"
-        android:inputType="none"
-        android:text="1"
-
-        app:layout_constraintEnd_toStartOf="@+id/etDetalleAmbientes"
+        android:hint="..."
+        android:inputType="text"
+        app:layout_constraintEnd_toStartOf="@+id/etCrearAmbientes"
         app:layout_constraintHorizontal_bias="0.718"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
     <EditText
-        android:id="@+id/etDetalleDireccion"
+        android:id="@+id/etCrearDireccion"
         android:layout_width="134dp"
         android:layout_height="52dp"
         android:layout_marginTop="8dp"
-        android:editable="false"
         android:ems="10"
-        android:inputType="none"
-        android:text="1"
-        app:layout_constraintEnd_toStartOf="@+id/etDetallePrecio"
+        android:hint="..."
+        android:inputType="text"
+        app:layout_constraintEnd_toStartOf="@+id/etCrearPrecio"
         app:layout_constraintHorizontal_bias="0.828"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+        app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
     <EditText
-        android:id="@+id/etDetalleAmbientes"
+        android:id="@+id/etCrearAmbientes"
         android:layout_width="136dp"
         android:layout_height="52dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="68dp"
-        android:editable="false"
         android:ems="10"
-        android:inputType="none"
-        android:text="1"
+        android:hint="..."
+        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+        app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
     <EditText
-        android:id="@+id/etDetalleUso"
+        android:id="@+id/etCrearUso"
         android:layout_width="123dp"
         android:layout_height="52dp"
         android:layout_marginTop="8dp"
-        android:editable="false"
         android:ems="10"
-        android:inputType="none"
-        android:text="1"
-        app:layout_constraintEnd_toStartOf="@+id/cbDisponibleInmueble"
+        android:hint="..."
+        android:inputType="text"
+        app:layout_constraintEnd_toStartOf="@+id/cbCrearDisponible"
         app:layout_constraintHorizontal_bias="0.673"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+        app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/textView19"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -83,59 +78,56 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.167"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etDetalleDireccion" />
+        app:layout_constraintTop_toBottomOf="@+id/etCrearDireccion" />
 
     <EditText
-        android:id="@+id/etDetallePrecio"
+        android:id="@+id/etCrearPrecio"
         android:layout_width="wrap_content"
         android:layout_height="52dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="12dp"
-        android:editable="false"
         android:ems="10"
-        android:inputType="none"
-        android:text="1"
+        android:hint="..."
+        android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+        app:layout_constraintTop_toBottomOf="@+id/textView20" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/textView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
         android:layout_marginTop="100dp"
-        android:text="Codigo"
-        app:layout_constraintEnd_toStartOf="@+id/textView10"
+        android:text="Superficie"
+        app:layout_constraintEnd_toStartOf="@+id/textView17"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <CheckBox
-        android:id="@+id/cbDisponibleInmueble"
+        android:id="@+id/cbCrearDisponible"
         android:layout_width="123dp"
         android:layout_height="49dp"
         android:layout_marginTop="52dp"
         android:layout_marginEnd="88dp"
-        android:editable="true"
         android:text="Disponible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etDetallePrecio"
+        app:layout_constraintTop_toBottomOf="@+id/etCrearPrecio"
         app:layout_constraintVertical_bias="0.048" />
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/textView20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="136dp"
         android:text="Precio"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etDetalleAmbientes" />
+        app:layout_constraintTop_toBottomOf="@+id/etCrearAmbientes" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/textView17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
@@ -145,44 +137,43 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/textView18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
         android:layout_marginTop="36dp"
-        android:text="Direccion"
-        app:layout_constraintEnd_toStartOf="@+id/textView12"
+        android:text="Dirección"
+        app:layout_constraintEnd_toStartOf="@+id/textView20"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etDetalleCodigo" />
+        app:layout_constraintTop_toBottomOf="@+id/etCrearSuperficie" />
 
     <EditText
-        android:id="@+id/etDetalleTipo"
+        android:id="@+id/etCrearTipo"
         android:layout_width="wrap_content"
         android:layout_height="52dp"
         android:layout_marginTop="4dp"
-        android:editable="false"
         android:ems="10"
-        android:inputType="none"
-        android:text="1"
+        android:hint="..."
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.298"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+        app:layout_constraintTop_toBottomOf="@+id/textView21" />
 
     <TextView
-        android:id="@+id/textView14"
+        android:id="@+id/textView21"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="TIpo"
+        android:text="Tipo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.201"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etDetalleUso" />
+        app:layout_constraintTop_toBottomOf="@+id/etCrearUso" />
 
     <ImageView
-        android:id="@+id/ivDetalleInmueble"
+        android:id="@+id/ivCrearInmueble"
         android:layout_width="300dp"
         android:layout_height="150dp"
         android:layout_marginBottom="56dp"
@@ -193,14 +184,25 @@
         tools:src="@tools:sample/avatars" />
 
     <Button
-        android:id="@+id/btnEditar"
+        android:id="@+id/btnGuardar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Editar"
+        android:text="Guardar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivDetalleInmueble" />
+        app:layout_constraintTop_toBottomOf="@+id/ivCrearInmueble" />
+
+    <Button
+        android:id="@+id/btnGuardarImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="CargarImg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/btnGuardar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

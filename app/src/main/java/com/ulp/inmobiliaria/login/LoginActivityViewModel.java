@@ -2,6 +2,11 @@ package com.ulp.inmobiliaria.login;
 
 import android.app.Application;
 import android.content.Intent;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
+import android.net.Uri;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -19,6 +24,18 @@ import retrofit2.Response;
 public class LoginActivityViewModel extends AndroidViewModel {
 
     private MutableLiveData<String> mError;
+    private SensorManager sensorManager;
+    private Sensor accelerometer;
+    private ManejaShake shakeListener;
+
+    private static final float SHAKE_THRESHOLD = 30.0f;
+
+    private long ultimaActualizacion;
+    private float ultimaAceleracionX;
+    private float ultimaAceleraciony;
+    private float ultimaAceleracionZ;
+
+
     public LoginActivityViewModel(@NonNull Application application) {
         super(application);
     }
@@ -85,4 +102,81 @@ public class LoginActivityViewModel extends AndroidViewModel {
 
 
     }
+    public void comienzoDeteccionShake() {
+        sensorManager = (SensorManager) getApplication().getSystemService(getApplication().SENSOR_SERVICE);
+        accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+
+        if (accelerometer != null) {
+            shakeListener = new ManejaShake();
+            sensorManager.registerListener(shakeListener, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
+            ultimaActualizacion = System.currentTimeMillis();
+
+        }else {
+            mError.setValue("El dispositivo no tiene sensor de acelerometro");
+        }
+
+
+
+
+
+    }
+
+    public void finDeteccionShake() {
+        if (sensorManager != null && shakeListener != null) {
+            sensorManager.unregisterListener(shakeListener);
+        }
+    }
+
+    public void comenzarCall(){
+        Intent callIntent = new Intent(Intent.ACTION_CALL);
+        callIntent.setData(Uri.parse("tel:2664553747"));
+        callIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        try{
+            getApplication().startActivity(callIntent);
+        } catch (SecurityException e) {
+            mError.setValue("No tienes permiso para llamar");
+        } catch (Exception e){
+            mError.setValue("Error al llamar");
+        }
+
+
+    }
+
+    private class ManejaShake implements SensorEventListener {
+        @Override
+        public void onSensorChanged(SensorEvent event) {
+            long tiempoActual = System.currentTimeMillis();
+           if((tiempoActual - ultimaActualizacion) > 100) {
+               float x = event.values[0];
+               float y = event.values[1];
+               float z = event.values[2];
+
+               float aceleracion = (float) Math.sqrt(x * x + y * y + z * z);
+               float delta = Math.abs(aceleracion - (float) Math.sqrt(ultimaAceleracionX * ultimaAceleracionX + ultimaAceleraciony * ultimaAceleraciony + ultimaAceleracionZ));
+               if (delta > SHAKE_THRESHOLD) {
+                   comenzarCall();
+               }
+               ultimaAceleracionX = x;
+               ultimaAceleraciony = y;
+               ultimaAceleracionZ = z;
+               ultimaActualizacion = tiempoActual;
+               }
+           }
+
+           @Override
+           public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+
+           }
+
+
+
+
+
+        }
+
 }
+
+
+
+

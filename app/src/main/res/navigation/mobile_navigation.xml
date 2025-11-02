@@ -15,13 +15,21 @@
         android:id="@+id/nav_perfil"
         android:name="com.ulp.inmobiliaria.ui.perfil.PerfilFragment"
         android:label="@string/perfil"
-        tools:layout="@layout/fragment_perfil" />
+        tools:layout="@layout/fragment_perfil" >
+        <action
+            android:id="@+id/action_nav_perfil_to_nav_inicio"
+            app:destination="@id/nav_inicio" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_salir"
         android:name="com.ulp.inmobiliaria.ui.logout.LogoutFragment"
         android:label="@string/logout"
-        tools:layout="@layout/fragment_logout" />
+        tools:layout="@layout/fragment_logout" >
+        <action
+            android:id="@+id/action_nav_salir_to_nav_inicio"
+            app:destination="@id/nav_inicio" />
+    </fragment>
     <fragment
         android:id="@+id/nav_inmuebles"
         android:name="com.ulp.inmobiliaria.ui.inmuebles.InmueblesFragment"
@@ -30,17 +38,37 @@
         <action
             android:id="@+id/action_nav_inmuebles_to_detalleFragment"
             app:destination="@id/detalleFragment" />
+        <action
+            android:id="@+id/action_nav_inmuebles_to_crearFragment"
+            app:destination="@id/crearFragment" />
+        <action
+            android:id="@+id/action_nav_inmuebles_to_nav_inicio"
+            app:destination="@id/nav_inicio" />
     </fragment>
     <fragment
         android:id="@+id/nav_inquilinos"
         android:name="com.ulp.inmobiliaria.ui.inquilinos.InquilinosFragment"
         android:label="@string/inquilinos"
-        tools:layout="@layout/fragment_inquilinos" />
+        tools:layout="@layout/fragment_inquilinos" >
+        <action
+            android:id="@+id/action_nav_inquilinos_to_nav_inicio"
+            app:destination="@id/nav_inicio" />
+        <action
+            android:id="@+id/action_nav_inquilinos_to_detalleinquilinoFragment"
+            app:destination="@id/detalleinquilinoFragment" />
+    </fragment>
     <fragment
         android:id="@+id/nav_contratos"
         android:name="com.ulp.inmobiliaria.ui.contratos.ContratosFragment"
         android:label="@string/contratos"
-        tools:layout="@layout/fragment_contratos" />
+        tools:layout="@layout/fragment_contratos" >
+        <action
+            android:id="@+id/action_nav_contratos_to_nav_inicio"
+            app:destination="@id/nav_inicio" />
+        <action
+            android:id="@+id/action_nav_contratos_to_detalleContratoFragment2"
+            app:destination="@id/detalleContratoFragment" />
+    </fragment>
     <fragment
         android:id="@+id/detalleFragment"
         android:name="com.ulp.inmobiliaria.ui.inmuebles.DetalleFragment"
@@ -49,6 +77,45 @@
         <action
             android:id="@+id/action_detalleFragment_to_nav_inmuebles"
             app:destination="@id/nav_inmuebles" />
+    </fragment>
+    <fragment
+        android:id="@+id/crearFragment"
+        android:name="com.ulp.inmobiliaria.ui.inmuebles.CrearFragment"
+        android:label="fragment_crear"
+        tools:layout="@layout/fragment_crear" >
+        <action
+            android:id="@+id/action_crearFragment_to_nav_inmuebles"
+            app:destination="@id/nav_inmuebles" />
+    </fragment>
+    <fragment
+        android:id="@+id/detalleinquilinoFragment"
+        android:name="com.ulp.inmobiliaria.ui.inquilinos.DetalleinquilinoFragment"
+        android:label="fragment_detalleinquilino"
+        tools:layout="@layout/fragment_detalleinquilino" >
+        <action
+            android:id="@+id/action_detalleinquilinoFragment_to_nav_inquilinos"
+            app:destination="@id/nav_inquilinos" />
+    </fragment>
+    <fragment
+        android:id="@+id/detalleContratoFragment"
+        android:name="com.ulp.inmobiliaria.ui.contratos.DetalleContratoFragment"
+        android:label="fragment_detalle_contrato"
+        tools:layout="@layout/fragment_detalle_contrato" >
+        <action
+            android:id="@+id/action_detalleContratoFragment_to_nav_contratos2"
+            app:destination="@id/nav_contratos" />
+        <action
+            android:id="@+id/action_detalleContratoFragment_to_detallePagosFragment"
+            app:destination="@id/detallePagosFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detallePagosFragment"
+        android:name="com.ulp.inmobiliaria.ui.contratos.DetallePagosFragment"
+        android:label="fragment_detalle_pagos"
+        tools:layout="@layout/fragment_detalle_pagos" >
+        <action
+            android:id="@+id/action_detallePagosFragment_to_detalleContratoFragment"
+            app:destination="@id/detalleContratoFragment" />
     </fragment>
 
 

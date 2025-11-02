@@ -46,6 +46,37 @@ public class PerfilViewModel extends AndroidViewModel {
             mNombreBoton.setValue("Guardar");
         }
         else {
+            if (nombre == null || nombre.trim().isEmpty()) {
+                Toast.makeText(getApplication(), "El nombre no puede estar vacío", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if (apellido == null || apellido.trim().isEmpty()) {
+                Toast.makeText(getApplication(), "El apellido no puede estar vacío", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if (dni == null || dni.trim().isEmpty()) {
+                Toast.makeText(getApplication(), "El DNI no puede estar vacío", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            try {
+                Long.parseLong(dni.trim());
+            } catch (NumberFormatException e) {
+                Toast.makeText(getApplication(), "El DNI debe ser un número válido", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if (telefono == null || telefono.trim().isEmpty()) {
+                Toast.makeText(getApplication(), "El teléfono no puede estar vacío", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if (email == null || email.trim().isEmpty()) {
+                Toast.makeText(getApplication(), "El email no puede estar vacío", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            String emailPattern = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
+            if (!email.matches(emailPattern)) {
+                Toast.makeText(getApplication(), "Formato de email inválido", Toast.LENGTH_SHORT).show();
+                return;
+            }
             mBandera.setValue(false);
             mNombreBoton.setValue("Editar");
             Propietario nuevo = new Propietario();
@@ -59,7 +90,6 @@ public class PerfilViewModel extends AndroidViewModel {
             ApiClient.InmoService inmoService;
             inmoService = ApiClient.getInmoService();
             Call<Propietario> call = inmoService.actualizarPropietario("Bearer " + token, nuevo);
-            inmoService.actualizarPropietario("Bearer " + token,nuevo);
             call.enqueue(new Callback<Propietario>() {
                 @Override
                 public void onResponse(Call<Propietario> call, Response<Propietario> response) {
@@ -91,12 +121,12 @@ public class PerfilViewModel extends AndroidViewModel {
         inmoService = ApiClient.getInmoService();
 
         Call<Propietario> call = inmoService.getPropietario("Bearer " + token);
-        inmoService.getPropietario("Bearer " + token);
+
         call.enqueue(new Callback<Propietario>() {
             @Override
             public void onResponse(Call<Propietario> call, Response<Propietario> response) {
                 if (response.isSuccessful()) {
-                    mPropietario.setValue(response.body());
+                    mPropietario.postValue(response.body());
                 }
                 else {
                     Toast.makeText(getApplication(), "Error al obtener el perfil", Toast.LENGTH_SHORT).show();

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import android.view.LayoutInflater;
@@ -50,6 +51,12 @@ public class InmueblesFragment extends Fragment {
             binding.listaInmuebles.setAdapter(adapter);
         }
     });
+
+        binding.fabNuevoInmueble.setOnClickListener(v -> {
+            Navigation.findNavController(v).navigate(R.id.crearFragment);
+        });
+
+
         mViewModel.getInmuebles();
         return binding.getRoot();
     }

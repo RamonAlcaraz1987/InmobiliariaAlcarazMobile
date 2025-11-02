@@ -5,11 +5,15 @@ import android.content.SharedPreferences;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.ulp.inmobiliaria.models.Contrato;
 import com.ulp.inmobiliaria.models.Inmueble;
+import com.ulp.inmobiliaria.models.Pago;
 import com.ulp.inmobiliaria.models.Propietario;
 
 import java.util.List;
 
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -18,8 +22,11 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
+import retrofit2.http.Part;
+import retrofit2.http.Path;
 
 public class ApiClient {
 
@@ -27,9 +34,15 @@ public class ApiClient {
 
 
 
+
     public static InmoService getInmoService(){
 
-        Gson gson = new GsonBuilder().setLenient().create();
+
+        //Gson gson = new GsonBuilder().setLenient().create();
+        Gson gson = new GsonBuilder()
+                .setLenient()
+                .setDateFormat("yyyy-MM-dd")
+                .create();
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(baseUrl)
                 .addConverterFactory(GsonConverterFactory.create(gson))
@@ -78,6 +91,26 @@ public class ApiClient {
 
        @PUT("api/Inmuebles/actualizar")
         Call<Inmueble> actualizarInmueble(@Header("Authorization") String token, @Body Inmueble inmueble);
+
+        @Multipart
+        @POST("api/Inmuebles/cargar")
+        Call<Inmueble> CargarInmueble(@Header("Authorization") String token,
+                                      @Part MultipartBody.Part imagen,
+                                      @Part("inmueble") RequestBody inmuebleBody);
+        @GET("api/Inmuebles/GetContratoVigente")
+        Call<List<Inmueble>> getInmueblesContratosVigentes(@Header("Authorization") String token);
+
+        @GET("api/contratos/inmueble/{id}")
+        Call<Contrato> getContratosPorInmueble(@Header("Authorization") String token, @Path("id") int id);
+
+        @GET("api/pagos/contrato/{id}")
+        Call<List<Pago>> getPagosPorContrato(@Header("Authorization") String token, @Path("id") int id);
+
+
+
+
+
+
     }
 
     public static void guardarToken(Context context, String token) {
@@ -90,5 +123,10 @@ public class ApiClient {
     public static String leerToken(Context context) {
         SharedPreferences sp = context.getSharedPreferences("token.xml", Context.MODE_PRIVATE);
         return sp.getString("token", null);
+    }
+    public static void clearToken(Context context) {
+        SharedPreferences sp = context.getSharedPreferences("token.xml", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.remove("token").apply();
     }
 }
