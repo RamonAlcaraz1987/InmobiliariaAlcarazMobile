@@ -72,7 +72,7 @@
     <fragment
         android:id="@+id/detalleFragment"
         android:name="com.ulp.inmobiliaria.ui.inmuebles.DetalleFragment"
-        android:label="fragment_detalle"
+        android:label="Detalle Inmueble"
         tools:layout="@layout/fragment_detalle" >
         <action
             android:id="@+id/action_detalleFragment_to_nav_inmuebles"
@@ -81,7 +81,7 @@
     <fragment
         android:id="@+id/crearFragment"
         android:name="com.ulp.inmobiliaria.ui.inmuebles.CrearFragment"
-        android:label="fragment_crear"
+        android:label="Crear Inmueble"
         tools:layout="@layout/fragment_crear" >
         <action
             android:id="@+id/action_crearFragment_to_nav_inmuebles"
@@ -90,7 +90,7 @@
     <fragment
         android:id="@+id/detalleinquilinoFragment"
         android:name="com.ulp.inmobiliaria.ui.inquilinos.DetalleinquilinoFragment"
-        android:label="fragment_detalleinquilino"
+        android:label="Detalle Inquilino"
         tools:layout="@layout/fragment_detalleinquilino" >
         <action
             android:id="@+id/action_detalleinquilinoFragment_to_nav_inquilinos"
@@ -99,7 +99,7 @@
     <fragment
         android:id="@+id/detalleContratoFragment"
         android:name="com.ulp.inmobiliaria.ui.contratos.DetalleContratoFragment"
-        android:label="fragment_detalle_contrato"
+        android:label="Detalle Contrato"
         tools:layout="@layout/fragment_detalle_contrato" >
         <action
             android:id="@+id/action_detalleContratoFragment_to_nav_contratos2"
@@ -111,7 +111,7 @@
     <fragment
         android:id="@+id/detallePagosFragment"
         android:name="com.ulp.inmobiliaria.ui.contratos.DetallePagosFragment"
-        android:label="fragment_detalle_pagos"
+        android:label="Detalle pagos"
         tools:layout="@layout/fragment_detalle_pagos" >
         <action
             android:id="@+id/action_detallePagosFragment_to_detalleContratoFragment"

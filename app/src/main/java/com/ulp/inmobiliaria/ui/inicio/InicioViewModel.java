@@ -46,7 +46,7 @@ public class InicioViewModel extends AndroidViewModel {
 
        @Override
        public void onMapReady(@NonNull GoogleMap googleMap) {
-           googleMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+           googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
            googleMap.addMarker(new MarkerOptions().position(SANLUIS).title("San Luis"));
 
            CameraPosition cameraPosition = new CameraPosition.Builder().target(SANLUIS).zoom(12).bearing(45).tilt(70).build();

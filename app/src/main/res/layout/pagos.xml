@@ -42,10 +42,10 @@
             android:id="@+id/textView31"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="48dp"
+            android:layout_marginTop="32dp"
             android:text="Codigo contrato"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.043"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView30" />
 
@@ -53,10 +53,10 @@
             android:id="@+id/textView32"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="48dp"
+            android:layout_marginTop="32dp"
             android:text="importe"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.037"
+            app:layout_constraintHorizontal_bias="0.049"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView31" />
 
@@ -74,67 +74,82 @@
 
         <EditText
             android:id="@+id/etCodigoPago"
-            android:layout_width="wrap_content"
-            android:layout_height="52dp"
-            android:layout_marginTop="8dp"
+            android:layout_width="145dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="24dp"
+
             android:ems="10"
             android:hint="."
-            android:inputType="text"
+            android:inputType="none"
+            android:focusable="false"
+            android:cursorVisible="false"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.66"
             app:layout_constraintStart_toEndOf="@+id/textView22"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/etDetallePago"
-            android:layout_width="wrap_content"
+            android:layout_width="152dp"
             android:layout_height="52dp"
             android:layout_marginStart="56dp"
-            android:layout_marginTop="2dp"
+            android:layout_marginTop="16dp"
+
             android:ems="10"
             android:hint="."
-            android:inputType="text"
+            android:inputType="none"
+            android:focusable="false"
+            android:cursorVisible="false"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.471"
             app:layout_constraintStart_toEndOf="@+id/textView30"
             app:layout_constraintTop_toBottomOf="@+id/etCodigoPago" />
 
         <EditText
             android:id="@+id/etCodigoContratoPago"
-            android:layout_width="wrap_content"
-            android:layout_height="52dp"
+            android:layout_width="141dp"
+            android:layout_height="63dp"
             android:layout_marginTop="5dp"
+
             android:ems="10"
             android:hint="."
-            android:inputType="text"
+            android:inputType="none"
+            android:focusable="false"
+            android:cursorVisible="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView31"
             app:layout_constraintTop_toBottomOf="@+id/etDetallePago" />
 
         <EditText
             android:id="@+id/etImportePago"
-            android:layout_width="wrap_content"
+            android:layout_width="141dp"
             android:layout_height="52dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
+
             android:ems="10"
             android:hint="."
-            android:inputType="text"
+            android:inputType="none"
+            android:focusable="false"
+            android:cursorVisible="false"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.745"
+            app:layout_constraintHorizontal_bias="0.598"
             app:layout_constraintStart_toEndOf="@+id/textView32"
             app:layout_constraintTop_toBottomOf="@+id/etCodigoContratoPago" />
 
         <EditText
             android:id="@+id/etFechaPago"
-            android:layout_width="wrap_content"
+            android:layout_width="141dp"
             android:layout_height="52dp"
             android:layout_marginTop="4dp"
+
             android:ems="10"
             android:hint="."
-            android:inputType="text"
+            android:inputType="none"
+            android:focusable="false"
+            android:cursorVisible="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.587"
             app:layout_constraintStart_toEndOf="@+id/textView33"
             app:layout_constraintTop_toBottomOf="@+id/etImportePago"
             app:layout_constraintVertical_bias="0.0" />
